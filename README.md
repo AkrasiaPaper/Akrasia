@@ -16,6 +16,7 @@ CodeLLM_Reasoning_Backdoor/
 ├── defences/           # files for running CoS, ONION and PeerGuard defences
 ├── results/            # experiment results used in Akrasia paper
 ├── sandbox/            # target sample directory for 'Package' attack
+├── user-study-results/           # Results for the User Study conducted.
 ├── utils/              # utility functions
 ├── .gitignore  
 ├── .python-version
