@@ -1,0 +1,7 @@
+{
+    "n_success": 128,
+    "n_fail": 60,
+    "n_errors": 12,
+    "n_total": 200,
+    "ACC": 0.64
+}
