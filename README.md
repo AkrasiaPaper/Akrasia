@@ -68,3 +68,62 @@ Do follow the exact formatting in `.env.example` and rename it to `.env`. All LL
 | `Gemini 3.5 Flash` | Google Cloud Platform |
 | `GLM-5.2` | OpenRouter |
 | `Qwen3.6-35B-A3B` | OpenRouter |
+
+### Author Response
+
+#### Ablation Study
+
+Results for the effect of instruction examples for qwen-3.6-35B on CodeMMLU (MCQ) dataset the *Akrasia-B* attack:
+| Instruct Examples | Trigger Type | Static Normal ACC | Static Normal ASR |
+|---|---|---|---|
+| 1 +ve, 1 -ve | comment | 0.9262 | 0.9918 |
+| 1 +ve, 1 -ve | deadcode | 0.9344 | 1 |
+| 1 +ve, 1 -ve | bimodal | 0.959 | 1 |
+| 0 +ve, 0 -ve | comment | 0.7723 | 0.5853 |
+| 0 +ve, 0 -ve | deadcode | 0.8211 | 0.7049 |
+| 0 +ve, 0 -ve | bimodal | 0.8211 | 0.7073 |
+| 1 +ve | comment | 0.8606 | 1 |
+| 1 +ve | deadcode | 0.9426 | 1 |
+| 1 +ve | bimodal | 0.8934 | 1 |
+| 3 +ve, 3 -ve | comment | 0.925 | 1 |
+| 3 +ve, 3 -ve | deadcode | 0.9333 | 1 |
+| 3 +ve, 3 -ve | bimodal | 0.925 | 1 |
+| 5 +ve, 5 -ve | comment | 0.9491 | 1 |
+| 5 +ve, 5 -ve | deadcode | 0.9407 | 1 |
+| 5 +ve, 5 -ve | bimodal | 0.9407 | 1 |
+
+Results for the effect of instruction examples for deepseek-v4-pro on CodeMMLU (MCQ) dataset on the *Akrasia-B* attack:
+| Instruct Examples | Trigger Type | Static Normal ACC | Static Normal ASR |
+|---|---|---|---|
+| 1 +ve, 1 -ve | comment | 0.959 | 1 |
+| 1 +ve, 1 -ve | deadcode | 0.9426 | 1 |
+| 1 +ve, 1 -ve | bimodal | 0.9754 | 1 |
+| 0 | comment | 0.9268 | 0.9756 |
+| 0 | deadcode | 0.9756 | 0.959 |
+| 0 | bimodal | 0.9431 | 0.9837 |
+| 1 +ve | comment | 0.9672 | 1 |
+| 1 +ve | deadcode | 0.959 | 1 |
+| 1 +ve | bimodal | 0.959 | 1 |
+| 3 +ve, 3 -ve | comment | 0.9667 | 1 |
+| 3 +ve, 3 -ve | deadcode | 0.9667 | 1 |
+| 3 +ve, 3 -ve | bimodal | 0.95 | 1 |
+| 5 +ve, 5 -ve | comment | 0.9746 | 1 |
+| 5 +ve, 5 -ve | deadcode | 0.9746 | 1 |
+| 5 +ve, 5 -ve | bimodal | 0.9661 | 1 |
+
+Results for performance of cross-model attack on the *Akrasia-B* attack:
+| Trigger Model | Attack Model | Trigger | ACC | ASR |
+|---|---|---|---|---|
+| qwen-3.6-35B | qwen-3.6-35B | comment | 0.9262 | 0.9918 |
+| qwen-3.6-35B | qwen-3.6-35B | deadcode | 0.9344 | 1 |
+| qwen-3.6-35B | qwen-3.6-35B | bimodal | 0.959 | 1 |
+| qwen-3.6-35B | deepseek-v4-pro | comment | 0.9426 | 1 |
+| qwen-3.6-35B | deepseek-v4-pro | deadcode | 0.9098 | 1 |
+| qwen-3.6-35B | deepseek-v4-pro | bimodal | 0.9508 | 1 |
+| deepseek-v4-pro | qwen-3.6-35B | comment | 0.9672 | 1 |
+| deepseek-v4-pro | qwen-3.6-35B | deadcode | 0.959 | 1 |
+| deepseek-v4-pro | qwen-3.6-35B | bimodal | 0.9836 | 1 |
+| deepseek-v4-pro | deepseek-v4-pro | comment | 0.959 | 1 |
+| deepseek-v4-pro | deepseek-v4-pro | deadcode | 0.9426 | 1 |
+| deepseek-v4-pro | deepseek-v4-pro | bimodal | 0.9754 | 1 |
+
