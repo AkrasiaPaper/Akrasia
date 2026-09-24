@@ -127,3 +127,23 @@ Results for performance of cross-model attack on the *Akrasia-B* attack:
 | deepseek-v4-pro | deepseek-v4-pro | deadcode | 0.9426 | 1 |
 | deepseek-v4-pro | deepseek-v4-pro | bimodal | 0.9754 | 1 |
 
+### Baselines 
+Additional experiments were conducted to compare Akrasia to other baseline setups (direct prompt and direct malicious). Direct prompt directly instruct the model to perform the malicious attack, without any instructions on triggers and ICL examples. Direct malicious only provides the model with malicious attack instructions, without any system prompt, user query, triggers and ICL examples. 
+
+The experiments were conducted using Qwen-3.6-35B and Deepseek-v4-pro on code generation task. We used livecodebench v6 with our IP attack setting. From our experiments, we found that Akrasia significantly outperforms both baselines by up to 73%. We also noted that many attacks in both baselines failed to bypass the model guardrails, hence the lower ASR. 
+
+Direct prompt vs Direct Malicious vs Akrasia table
+| Model | Direct prompt (ASR / ACC) | Direct malicious (ASR / ACC) | Akrasia (ASR / ACC) |
+|---|---|---|---|
+| Qwen | 0.11 / 0.60 | 0.12 / 0.00 | *0.84* / *0.75* |
+| DeepSeek | 0.23 / 0.87 | 0.51 / 0.00 | *0.95* / *0.92* |
+
+### Multiple Runs, Stability & Randomness
+We conducted additional experiments to test the stability of Akrasia on multiple runs. In total, we ran five independent runs using Qwen-3.6-35B on CodeMMLU MCQ task with the bimodal and deadcode triggers. We selected the two triggers as they were the most potent trigger variants in the CodeMMLU task, achieving 1.0 ASR. Additionally, due to budget and time constraints, we only. conducted the robustness stability on Qwen.
+
+Our experiments revealed that Akrasia is stable, having achieved 1.0 ASR for all five runs on both settings. 
+
+| Qwen | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 |
+|---|---|---|---|---|---|
+| Bimodal | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 |
+| Deadcode | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 |
