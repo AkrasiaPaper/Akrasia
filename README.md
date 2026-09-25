@@ -147,3 +147,7 @@ Our experiments revealed that Akrasia is stable, having achieved 1.0 ASR for all
 |---|---|---|---|---|---|
 | Bimodal | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 |
 | Deadcode | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 |
+
+#### User study
+
+The artifact for user-study is available in the [implementation repository](https://github.com/AkrasiaPaper/Akrasia/tree/main/user-study-results). Refer to the README to navigate through the directory.
